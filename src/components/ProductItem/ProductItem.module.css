@@ -66,3 +66,32 @@
     font-size: 20px;
     font-weight: 900;
 }
+
+@media (max-width: 1200px){
+    .wrapper{
+        padding: 0 50px;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    .section{
+        flex-direction: column;
+    }
+    
+    .top{
+        flex-direction: column;
+    }
+    .bottom{
+        flex-direction: column;
+    }
+    .add_to_favorite{
+        max-width: 400px;
+    }
+    .line{
+        width: 100%;
+    }
+    
+}

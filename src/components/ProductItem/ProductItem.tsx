@@ -13,9 +13,9 @@ const ProductItem = (params:ProductProps) => {
           <div className={styles.content}>
               <div className={styles.top}>
                   <h2 className={styles.h2}>{params.title}</h2> 
-                  <button>Add To Favorite</button>
+                  <button className={styles.add_to_favorite}>Add To Favorite</button>
               </div>
-              <hr />
+              <hr className={styles.line}/>
               <div className={styles.bottom}>
                   <div className={styles.descr_block}>
                       <span className={styles.description_title}>Description</span>

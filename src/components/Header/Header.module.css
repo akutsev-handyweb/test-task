@@ -7,8 +7,6 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0 169px 0 179px;
-
-
 }
 .bottom_header{
     
@@ -26,4 +24,32 @@
 }
 .line{
     width:100%;
+}
+
+
+@media (max-width: 1200px){
+    .top_header{
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    .bottom_header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .ul{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 32px;
+        height: 51px;
+        position: relative;
+        padding: 0 50px;
+    
+    }
+    .line{
+        width:100%;
+    }
 }
