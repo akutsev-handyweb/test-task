@@ -1,0 +1,29 @@
+
+.header{
+
+}
+.top_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 169px 0 179px;
+
+
+}
+.bottom_header{
+    
+}
+
+.ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 32px;
+    height: 51px;
+    position: relative;
+    padding: 0 169px 0 179px;
+
+}
+.line{
+    width:100%;
+}

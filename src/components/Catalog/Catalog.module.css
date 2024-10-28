@@ -1,0 +1,44 @@
+.all{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 80px;
+    margin-top: 25px;
+}
+.category_filter{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    /* margin-top: 30px; */
+}
+.labels{
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+.label{
+    display: flex;
+    gap: 10px;
+}
+
+
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.sort_btn{
+    border:none;
+    display: block;
+    background: none;
+    text-align: left;
+    /* margin-top: 30px; */
+
+}
+.cards{
+    /* margin-top: 30px; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+}
