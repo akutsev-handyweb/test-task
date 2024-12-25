@@ -1,27 +1,28 @@
 "use client";
 import { PREFIX } from '@/API/API';
 import styles from './Catalog.module.css';
-import {ProductProps} from '@/types/product.interface';
+import {ArticleProps} from '@/types/article.interface';
 import { useEffect, useState } from 'react';
 import CardItem from '../CardItem/CardItem';
 
 const Catalog = () => {
-    const [cards, setCards] = useState<ProductProps[]>([]);
-    const [uniqueCategories, setUniqueCategories] = useState<string[]>([]);
-    const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
-    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const [cards, setCards] = useState<ArticleProps[]>([]);
+    
 
-    const getCards = async () => {
+    const getArticles = async () => {
         try {
-            const res = await fetch(`${PREFIX}products`);
+            const res = await fetch(`${PREFIX}/articles`);
             if (!res.ok) {
                 return;
             }
-            const data = await res.json() as ProductProps[];
-            setCards(data);
+            const data = await res.json() ;
+            
+            data.map(i =>{
+                // console.log(i.data);
+                setCards(i.data);
+            })
 
-            const categories = Array.from(new Set(data.map(card => card.category)));
-            setUniqueCategories(categories);
+            
         } catch (e) {
             console.error(e);
             return;
@@ -29,92 +30,65 @@ const Catalog = () => {
     };
 
     useEffect(() => {
-        getCards();
+        getArticles();
     }, []);
 
-    const sortCards = (direction: 'asc' | 'desc') => {
-        const sortedCards = [...cards].sort((a, b) => {
-            return direction === 'asc' ? a.price - b.price : b.price - a.price;
-        });
-        setCards(sortedCards);
-    };
-
-    const toggleSortDirection = () => {
-        const newDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-        setSortDirection(newDirection);
-        sortCards(newDirection);
-    };
-
-    const filteredCards = cards.filter(card => {
-        return selectedCategories.length === 0 || selectedCategories.includes(card.category);
-    });
-
-    const handleCategoryChange = (category: string) => {
-        setSelectedCategories(prev => 
-            prev.includes(category) 
-                ? prev.filter(cat => cat !== category) 
-                : [...prev, category]
-        );
-    };
+    
 
     return (
         <section className={styles.all}>
-
-        <CategoryFilter
-            categories={uniqueCategories}
-            selectedCategories={selectedCategories}
-            onCategoryChange={handleCategoryChange}/>
-
             <div className={styles.right}>
-            <span>Main {'>'} Catalog</span>
+            <span>Main {'>'} Catalog
+                
+            </span>
             <h1>Каталог товаров</h1>
             
-            <button className={styles.sort_btn} onClick={toggleSortDirection}>
-                Price ({sortDirection === 'asc' ? 'по возрастанию' : 'по убыванию'})
-            </button>
 
             <div className={styles.cards}>
-            {filteredCards.map(c => (
-                <CardItem
-                    key={c.id}
-                    id={c.id}
-                    title={c.title}
-                    price={c.price}
-                    category={c.category}
-                    description={c.description}
-                    image={c.image}
-                />
-            ))}
-            </div>
+                
+                    {cards.length > 0 ? (
+                        cards.map(c => (
+                            <CardItem
+                                key={c.id}
+                                id={c.id}
+                                name={c.name}
+                                body={c.body}
+                                created_at={c.created_at}
+                                updated_at={c.updated_at}
+                            />
+                            
+                        ))
+                    ) : (
+                        <p>Нет доступных карточек.</p> // Сообщение, если карточек нет
+                    )}
+                </div>
             </div>
             
         </section>
     );
 };
 
-const CategoryFilter = ({ categories, selectedCategories, onCategoryChange }: {
-    categories: string[],
-    selectedCategories: string[],
-    onCategoryChange: (category: string) => void
-}) => {
-    return (
-        <div className={styles.category_filter}>
-            <span>Фильтр по категориям</span>
-
-            <div className={styles.labels}>
-            {categories.map(category => (
-                <label className={styles.label} key={category}>
-                    <input 
-                        type="checkbox"
-                        checked={selectedCategories.includes(category)}
-                        onChange={() => onCategoryChange(category)}
-                    />
-                    {category}
-                </label> 
-            ))}
-            </div>
-        </div>
-    );
-};
 
 export default Catalog;
+
+
+
+[{"current_page":1,
+    "data":[
+        {"id":2,"name":"Article 1","body":"This is the content of article 12.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-20T14:11:21.000000Z"},
+        {"id":3,"name":"Article 2","body":"This is the content of article 2.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-13T10:16:50.000000Z"},
+        {"id":5,"name":"Article 4","body":"This is the content of article 4.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-13T10:16:50.000000Z"},
+        {"id":7,"name":"Article 111","body":"ggsvfcgb sdhjv rytgcvbdrg","created_at":"2024-12-20T08:25:39.000000Z","updated_at":"2024-12-20T08:25:39.000000Z"},
+        {"id":8,"name":"Article 154","body":"ggsvfcgb sdhjv rytgcvbdrg","created_at":"2024-12-20T08:26:02.000000Z","updated_at":"2024-12-20T08:26:02.000000Z"}],
+    "first_page_url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1",
+    "from":1,
+    "last_page":1,
+    "last_page_url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1",
+    "links":
+        [{"url":null,"label":"&laquo; Previous","active":false},
+            {"url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1","label":"1","active":true},
+            {"url":null,"label":"Next &raquo;","active":false}],
+    "next_page_url":null,
+    "path":"http:\/\/127.0.0.1:8000\/api\/articles",
+    "per_page":15,"prev_page_url":null,
+    "to":5,"total":5}]

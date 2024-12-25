@@ -1,23 +1,23 @@
 import Link from 'next/link';
 import styles from './CardItem.module.css';
-import { ProductProps } from '@/types/product.interface';
+import { ArticleProps } from '@/types/article.interface';
 
 
-function CardItem(props: ProductProps){
+function CardItem(props: ArticleProps){
 	return (
-		<Link href = {`/product/[id]`} as={`/product/${props.id} `}  className={styles['link']}>
+		<Link href = {`/articles/[id]`} as={`/articles/${props.id} `}  className={styles['link']}>
         
-			<div className={styles.card} style={{backgroundImage: `url('${props.image}')`}} >
+			<div className={styles.card} style={{backgroundImage: `url('')`}} >
 					<div className={styles.top_content}>
 						<p className={styles.category}>
-							{props.category}
+							{}
 						</p>
 						<h3 className={styles.card_title}>
-							{props.title}
+							{props.name}
 						</h3>
 					</div>
 					<span className={styles.price}>
-						{props.price} $
+						{} 
 					</span>
 			</div>
 		</Link>
