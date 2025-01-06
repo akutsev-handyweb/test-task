@@ -5,7 +5,7 @@ import { ArticleProps } from '@/types/article.interface';
 
 function CardItem(props: ArticleProps){
 	return (
-		<Link href = {`/articles/[id]`} as={`/articles/${props.id} `}  className={styles['link']}>
+		<Link href = {`/article/[id]`} as={`/article/${props.id} `}  className={styles['link']}>
         
 			<div className={styles.card} style={{backgroundImage: `url('')`}} >
 					<div className={styles.top_content}>
@@ -14,6 +14,7 @@ function CardItem(props: ArticleProps){
 						</p>
 						<h3 className={styles.card_title}>
 							{props.name}
+							
 						</h3>
 					</div>
 					<span className={styles.price}>

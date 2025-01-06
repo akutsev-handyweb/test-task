@@ -10,28 +10,29 @@ export default function Product (){
     const [card,setCard] = useState<ArticleProps>();
     const getCard = async (id:string) =>{
         try{
-            const res = await fetch(`${PREFIX}articles/${id}`);
-            console.log("dddddafrhg");
+            const res = await fetch(`${PREFIX}/articles/${id}`);
+           
             if (!res.ok){
                 return ;
             }
             const  data = await res.json() as ArticleProps;
-            setCard(data);
+            setCard(data.article);
         } catch (e){
             console.error(e);
             return;
         }  
     };
+    useEffect(() => {
+        if (params.id) { // Проверка на наличие id
+            getCard(params.id);
+        }
+    }, [params.id]);
 
-    useEffect (()=> {
-        getCard(params.id);
-    },[params.id]);
-    return(
-      <>
-      {/* блин непонятный момент почему ругается, буду рад фидбеку с объяснением  */}
-        <ArticleItem {...card}/>
-      </>
-    )
+    return (
+        <>
+          {card ? <ArticleItem {...card} /> : <p>Загрузка...</p>} {/* Обработка состояния загрузки */}
+        </>
+      );
   }
 
   

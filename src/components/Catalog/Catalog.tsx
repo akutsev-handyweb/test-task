@@ -73,22 +73,22 @@ export default Catalog;
 
 
 
-[{"current_page":1,
-    "data":[
-        {"id":2,"name":"Article 1","body":"This is the content of article 12.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-20T14:11:21.000000Z"},
-        {"id":3,"name":"Article 2","body":"This is the content of article 2.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-13T10:16:50.000000Z"},
-        {"id":5,"name":"Article 4","body":"This is the content of article 4.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-13T10:16:50.000000Z"},
-        {"id":7,"name":"Article 111","body":"ggsvfcgb sdhjv rytgcvbdrg","created_at":"2024-12-20T08:25:39.000000Z","updated_at":"2024-12-20T08:25:39.000000Z"},
-        {"id":8,"name":"Article 154","body":"ggsvfcgb sdhjv rytgcvbdrg","created_at":"2024-12-20T08:26:02.000000Z","updated_at":"2024-12-20T08:26:02.000000Z"}],
-    "first_page_url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1",
-    "from":1,
-    "last_page":1,
-    "last_page_url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1",
-    "links":
-        [{"url":null,"label":"&laquo; Previous","active":false},
-            {"url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1","label":"1","active":true},
-            {"url":null,"label":"Next &raquo;","active":false}],
-    "next_page_url":null,
-    "path":"http:\/\/127.0.0.1:8000\/api\/articles",
-    "per_page":15,"prev_page_url":null,
-    "to":5,"total":5}]
+// [{"current_page":1,
+//     "data":[
+//         {"id":2,"name":"Article 1","body":"This is the content of article 12.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-20T14:11:21.000000Z"},
+//         {"id":3,"name":"Article 2","body":"This is the content of article 2.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-13T10:16:50.000000Z"},
+//         {"id":5,"name":"Article 4","body":"This is the content of article 4.","created_at":"2024-12-13T10:16:50.000000Z","updated_at":"2024-12-13T10:16:50.000000Z"},
+//         {"id":7,"name":"Article 111","body":"ggsvfcgb sdhjv rytgcvbdrg","created_at":"2024-12-20T08:25:39.000000Z","updated_at":"2024-12-20T08:25:39.000000Z"},
+//         {"id":8,"name":"Article 154","body":"ggsvfcgb sdhjv rytgcvbdrg","created_at":"2024-12-20T08:26:02.000000Z","updated_at":"2024-12-20T08:26:02.000000Z"}],
+//     "first_page_url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1",
+//     "from":1,
+//     "last_page":1,
+//     "last_page_url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1",
+//     "links":
+//         [{"url":null,"label":"&laquo; Previous","active":false},
+//             {"url":"http:\/\/127.0.0.1:8000\/api\/articles?page=1","label":"1","active":true},
+//             {"url":null,"label":"Next &raquo;","active":false}],
+//     "next_page_url":null,
+//     "path":"http:\/\/127.0.0.1:8000\/api\/articles",
+//     "per_page":15,"prev_page_url":null,
+//     "to":5,"total":5}]

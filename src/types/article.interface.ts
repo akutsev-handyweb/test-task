@@ -1,5 +1,5 @@
 export interface ArticleProps {
-    id:number
+    id:string
     name:string
     body:string
     created_at:string
